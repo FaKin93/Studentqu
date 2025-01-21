@@ -9,6 +9,13 @@
       Title="TeacherPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="question" Grid.Row="0" Content="Вопросы" Click="question_Click"/>
+        <Button x:Name="test_request" Grid.Row="1" Content="отчёты" Click="test_request_Click"/>
+        <Button x:Name="students" Grid.Row="2" Content="студенты" Click="students_Click"/>
     </Grid>
 </Page>

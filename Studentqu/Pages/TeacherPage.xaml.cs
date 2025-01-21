@@ -24,5 +24,20 @@ namespace Studentqu.Pages
         {
             InitializeComponent();
         }
+
+        private void question_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new QuestionPage());
+        }
+
+        private void test_request_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new RequestPage());
+        }
+
+        private void students_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new StudentsthPage());
+        }
     }
 }

@@ -16,13 +16,13 @@ using System.Windows.Shapes;
 namespace Studentqu.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для StudentPage.xaml
+    /// Логика взаимодействия для RequestPage.xaml
     /// </summary>
-    public partial class StudentPage : Page
+    public partial class RequestPage : Page
     {
-        public StudentPage()
+        public RequestPage()
         {
             InitializeComponent();
-        }   
+        }
     }
 }
