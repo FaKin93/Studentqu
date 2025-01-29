@@ -4,12 +4,12 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище StudentQuestionModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище StudentQuestionModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="questions">
           <Key>
             <PropertyRef Name="question_id" />
           </Key>
-          <Property Name="question_id" Type="int" Nullable="false" />
+          <Property Name="question_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="question_type" Type="varchar" MaxLength="50" />
           <Property Name="question_text" Type="text" />
           <Property Name="answer_option_1" Type="varchar" MaxLength="255" />
@@ -22,7 +22,7 @@
           <Key>
             <PropertyRef Name="student_id" />
           </Key>
-          <Property Name="student_id" Type="int" Nullable="false" />
+          <Property Name="student_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="group_number" Type="varchar" MaxLength="10" />
           <Property Name="full_name" Type="varchar" MaxLength="100" />
         </EntityType>
@@ -40,7 +40,7 @@
           <Key>
             <PropertyRef Name="test_id" />
           </Key>
-          <Property Name="test_id" Type="int" Nullable="false" />
+          <Property Name="test_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="test_date" Type="date" />
           <Property Name="student_id" Type="int" />
           <Property Name="question_id" Type="int" />
@@ -98,8 +98,7 @@
             <End Role="test_reports" EntitySet="test_reports" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="StudentQuestionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">

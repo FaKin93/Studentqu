@@ -10,10 +10,26 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="70*"/>
             <RowDefinition Height="377*"/>
             <RowDefinition Height="73*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" Name="DataGridStudent" AutoGenerateColumns="False" IsReadOnly="True" IsVisibleChanged="DataGridUser_IsVisibleChanged">
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.Column="0" Text="Номер группы" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox x:Name="number" Grid.Column="1" VerticalAlignment="Center" Background="White" TextChanged="number_TextChanged"/>
+
+            <TextBlock Grid.Column="2" Text="Ф.И.О." VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox x:Name="FIO" Grid.Column="3" VerticalAlignment="Center" Background="White" TextChanged="FIO_TextChanged"/>
+        </Grid>
+        
+        <DataGrid Grid.Row="1" Name="DataGridStudent" AutoGenerateColumns="False" IsReadOnly="True" IsVisibleChanged="DataGridUser_IsVisibleChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Номер группы" Binding="{Binding group_number}" Width="*"/>
                 <DataGridTextColumn Header="Ф.И.О." Binding="{Binding full_name}" Width="*"/>
@@ -27,8 +43,8 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button Grid.Row="1" Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Left" Click="ButtonAdd_Click" ToolTip="Добавить данные в базу"/>
-        <Button Grid.Row="1" Name="ButtonDel" Content="Удалить" HorizontalAlignment="Right" Click="ButtonDel_Click" ToolTip="Удалить данные из базы"/>
+        <Button Grid.Row="2" Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Left" Click="ButtonAdd_Click" ToolTip="Добавить данные в базу"/>
+        <Button Grid.Row="2" Name="ButtonDel" Content="Удалить" HorizontalAlignment="Right" Click="ButtonDel_Click" ToolTip="Удалить данные из базы"/>
 
     </Grid>
 </Page>

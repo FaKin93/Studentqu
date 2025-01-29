@@ -9,6 +9,77 @@
       Title="QuestionPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70*"/>
+            <RowDefinition Height="377*"/>
+            <RowDefinition Height="73*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="200"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="0" Text="Текст вопроса" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox x:Name="textques" Grid.Column="1" VerticalAlignment="Center" Background="White" TextChanged="text_TextChanged"/>
+
+            <TextBlock Grid.Column="2" Text="Тип вопроса" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBox x:Name="typeques" Grid.Column="3" VerticalAlignment="Center" Background="White" TextChanged="type_TextChanged"/>
+        </Grid>
+
+        <DataGrid Grid.Row="1" Name="DataGridQuestion" AutoGenerateColumns="False" IsReadOnly="True" IsVisibleChanged="DataGridUser_IsVisibleChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Тип вопроса" Binding="{Binding question_type}" Width="*"/>
+                <DataGridTextColumn Header="Текст вопроса" Binding="{Binding question_text}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Ответ #1" Binding="{Binding answer_option_1}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Ответ #2" Binding="{Binding answer_option_2}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Ответ #3" Binding="{Binding answer_option_3}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Ответ #4" Binding="{Binding answer_option_4}" Width="*">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style TargetType="TextBlock">
+                            <Setter Property="TextWrapping" Value="Wrap"></Setter>
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Номер правильного ответа" Binding="{Binding correct_answer}" Width="*"/>
+                <DataGridTemplateColumn Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="ButtonEdit" Content="Редактировать" Click="ButtonEdit_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="2" Name="ButtonAdd" Content="Добавить" HorizontalAlignment="Left" Click="ButtonAdd_Click" ToolTip="Добавить данные в базу"/>
+        <Button Grid.Row="2" Name="ButtonDel" Content="Удалить" HorizontalAlignment="Right" Click="ButtonDel_Click" ToolTip="Удалить данные из базы"/>
+
     </Grid>
 </Page>
