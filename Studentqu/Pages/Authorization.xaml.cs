@@ -47,7 +47,7 @@ namespace Studentqu.Pages
 
                 switch (user.Role)
                 {
-                    case "Преподователь":
+                    case "Преподаватель":
                         NavigationService.Navigate(new TeacherPage());
                         break;
                     case "Студент":
