@@ -28,8 +28,8 @@ namespace Studentqu.Pages
         public FinalPage(int studentid, int questionid, int answerid, int duration, int total, int correct, int grade)
         {
             InitializeComponent();
-            Grade_stu.Text = Convert.ToString(grade);
-            Count.Text = Convert.ToString(correct);
+            Grade_stu.Text = "Ваша оценка: " + Convert.ToString(grade);
+            Count.Text = "Всего правильных ответов: " + Convert.ToString(correct);
             stuid = studentid;
             queid = questionid;
             ansid = answerid;
