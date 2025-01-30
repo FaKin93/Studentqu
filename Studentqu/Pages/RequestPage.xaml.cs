@@ -23,6 +23,41 @@ namespace Studentqu.Pages
         public RequestPage()
         {
             InitializeComponent();
+            var currentStudents = Entities.GetContext().test_reports.ToList();
+            DataGridRequest.ItemsSource = currentStudents;
+        }
+        private void DataGridUser_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (Visibility == Visibility.Visible)
+            {
+                Entities.GetContext().ChangeTracker.Entries().ToList().ForEach(x => x.Reload());
+                DataGridRequest.ItemsSource = Entities.GetContext().test_reports.ToList();
+            }
+
+        }
+        private void ButtonDel_Click(object sender, RoutedEventArgs e)
+        {
+            var usersForRemoving = DataGridRequest.SelectedItems.Cast<test_reports>().ToList();
+
+            if (MessageBox.Show($"Вы точно хотите удалить записи в количестве {usersForRemoving.Count()} элементов?", "Внимание",
+                            MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    Entities.GetContext().test_reports.RemoveRange(usersForRemoving);
+                    Entities.GetContext().SaveChanges();
+                    MessageBox.Show("Данные успешно удалены!");
+
+                    DataGridRequest.ItemsSource = Entities.GetContext().test_reports.ToList();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message.ToString());
+                }
+
+            }
+
+
         }
     }
 }

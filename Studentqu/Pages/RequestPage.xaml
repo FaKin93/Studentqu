@@ -9,6 +9,31 @@
       Title="RequestPage">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="377*"/>
+            <RowDefinition Height="73*"/>
+        </Grid.RowDefinitions>
         
+
+        <DataGrid Grid.Row="0" Name="DataGridRequest" AutoGenerateColumns="False" IsReadOnly="True" IsVisibleChanged="DataGridUser_IsVisibleChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата тестирования" Binding="{Binding test_date}" Width="*"/>
+                
+                <DataGridTextColumn Header="Студент" Binding="{Binding students.student_id}" Width="*"/>
+
+                <DataGridTextColumn Header="длительность" Binding="{Binding test_duration_minutes}" Width="*"/>
+
+
+                <DataGridTextColumn Header="Общее количество вопросов" Binding="{Binding total_questions}" Width="*"/>
+
+                <DataGridTextColumn Header="Количество правильных" Binding="{Binding correct_answers}" Width="*"/>
+
+                <DataGridTextColumn Header="Оценка" Binding="{Binding student_grade}" Width="*"/>
+                
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Grid.Row="1" Name="ButtonDel" Content="Удалить" HorizontalAlignment="Right" Click="ButtonDel_Click" ToolTip="Удалить данные из базы"/>
+
     </Grid>
 </Page>

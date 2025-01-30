@@ -9,6 +9,17 @@
       Title="StudentPage">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="choice" Grid.Column="1" Grid.Row="0" VerticalAlignment="Bottom" DisplayMemberPath="full_name"/>
+        <Button x:Name="start" Grid.Column="1" Grid.Row="1" Content="Начать тестирование" Click="start_Click"/>
     </Grid>
 </Page>

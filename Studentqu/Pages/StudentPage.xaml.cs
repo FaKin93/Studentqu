@@ -23,6 +23,13 @@ namespace Studentqu.Pages
         public StudentPage()
         {
             InitializeComponent();
-        }   
+            var context = Entities.GetContext();
+            choice.ItemsSource = context.students.Distinct().ToList();
+        }
+
+        private void start_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new TestPage((choice.SelectedIndex + 1)));
+        }
     }
 }
